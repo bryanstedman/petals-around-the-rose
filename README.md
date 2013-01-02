@@ -1,4 +1,4 @@
-petals-around-the-rose
+Petals Around The Rose
 ======================
 
 This is small game that I made when I was first learning javascript. It was my first project actually. I didn't make the game up.
