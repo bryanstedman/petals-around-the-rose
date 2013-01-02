@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type='text/javascript'>
+			var roll = function() {
+				var die = Math.floor(Math.random()*6+1);
+				return die;
+			}
+			var die1 = roll();
+			var die2 = roll();
+			var die3 = roll();
+			var die4 = roll();
+			var die5 = roll();
+			
+			function findValue (x) {
+				if (x === 3) {
+					return 2;
+				} else if (x === 5) {
+					return 4;
+				} else {
+					return 0;
+				}
+			};
+		
+			var answer = findValue(die1) + findValue(die2) + findValue(die3) + findValue(die4) + findValue (die5);
+			var correctGuesses = 0;
+			function guess() {
+				var myGuess = prompt("What's your guess");
+				if (myGuess == answer) {
+					alert("That's right!");
+					correctGuesses++;
+					if (correctGuesses > 3) {
+						alert("I think you've got it");
+					};
+				} else {
+					alert("Sorry, the answer is " + answer);
+					correctGuesses = 0;
+				};
+				die1 = roll();
+				die2 = roll();
+				die3 = roll();
+				die4 = roll();
+				die5 = roll();
+				answer = findValue(die1) + findValue(die2) + findValue(die3) + findValue(die4) + findValue (die5);
+				document.getElementById('die1').innerHTML = "<img src='./images/die" + die1 + ".jpg' height='50' />";
+				document.getElementById('die2').innerHTML = "<img src='./images/die" + die2 + ".jpg' height='50' />";
+				document.getElementById('die3').innerHTML = "<img src='./images/die" + die3 + ".jpg' height='50' />";
+				document.getElementById('die4').innerHTML = "<img src='./images/die" + die4 + ".jpg' height='50' />";
+				document.getElementById('die5').innerHTML = "<img src='./images/die" + die5 + ".jpg' height='50' />";
+				document.getElementById('guess').innerHTML = "Correct Guesses: " + correctGuesses;
+				
+			};
+
+			document.write("<div id='die1'><img src='./images/die" + die1 + ".jpg' height='50' /></div>");
+			document.write("<div id='die2'><img src='./images/die" + die2 + ".jpg' height='50' /></div>");
+			document.write("<div id='die3'><img src='./images/die" + die3 + ".jpg' height='50' /></div>");
+			document.write("<div id='die4'><img src='./images/die" + die4 + ".jpg' height='50' /></div>");
+			document.write("<div id='die5'><img src='./images/die" + die5 + ".jpg' height='50' /></div>");
+			document.write("<div id='guess' style='display:none;'>Correct Guesses: 0</div>");
+		</script> 
+	
+		<button onclick="guess()">Take a guess!</button>
+
+	</body>
+</html> 
